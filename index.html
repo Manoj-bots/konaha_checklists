@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#4B170E">
+  <title>Konoha Checklist Mobile</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div><small id="weekday"></small><h1 id="dateText">Konoha Checklist</h1></div>
+      <button class="sync" onclick="pullLiveState()">☁ Sync</button>
+    </header>
+
+    <section class="summary card">
+      <div class="ring"><b id="overallPct">0%</b><small>OVERALL</small></div>
+      <div class="stats">
+        <div><span>Daily</span><b id="dailyStat">0 / 0</b></div>
+        <div><span>Today</span><b id="todayStat">0 / 0</b></div>
+        <div><span>Weekly</span><b id="weeklyStat">0 / 0</b></div>
+      </div>
+    </section>
+
+    <section class="card"><h2>☀ Everyday Tasks</h2><div id="dailyList" class="tasks"></div><div class="add"><input id="dailyInput" placeholder="Add daily task…"><button onclick="addTask('daily')">＋</button></div></section>
+    <section class="card"><h2>📝 Today's Tasks</h2><div id="todayList" class="tasks"></div><div class="add"><input id="todayInput" placeholder="Add today's task…"><button onclick="addTask('today')">＋</button></div></section>
+    <section class="card"><h2>📅 Weekly Tasks</h2><div id="weeklyList" class="tasks"></div><div class="add"><input id="weeklyInput" placeholder="Add weekly task…"><button onclick="addTask('weekly')">＋</button></div></section>
+    <section class="card"><h2>✦ Notes</h2><textarea id="notes" placeholder="Write quick notes here…"></textarea></section>
+
+    <div class="actions">
+      <button onclick="resetToday()">↻ Reset Today</button>
+      <button onclick="resetWeek()">↻ Reset Week</button>
+      <button onclick="saveReportToSheets()">📤 Save History</button>
+    </div>
+    <div id="syncStatus">☁ Sheets: not connected</div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
