@@ -1,8 +1,0 @@
-{
-  "name":"Konoha Checklist",
-  "short_name":"Checklist",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#190b08",
-  "theme_color":"#4B170E"
-}
