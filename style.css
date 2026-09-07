@@ -1,0 +1,78 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b10;color:#fff;font-family:"Segoe UI",Arial,sans-serif}
+body{background:url("naruto-background.jpg") center/cover no-repeat fixed}
+#desktop{position:relative;width:100vw;height:100vh}
+.widget{position:absolute;background:#4B170EB3;border:1px solid rgba(255,255,255,.24);border-radius:13px;box-shadow:0 4px 12px rgba(0,0,0,.25);overflow:hidden}
+.dragbar{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 13px;border-bottom:1px solid rgba(255,255,255,.13);cursor:grab;user-select:none;touch-action:none}
+.dragbar:active{cursor:grabbing}
+.dragbar h2{font-size:15px;margin:0;font-weight:800;letter-spacing:.4px}
+.dragbar span{font-size:19px;color:#aab2bd;letter-spacing:-3px}
+.daily-widget h2{color:#68e680}.today-widget h2{color:#53c8ff}.weekly-widget h2{color:#ff9a22}.progress-widget h2{color:#a7e56e}.notes-widget h2{color:#c792ff}.week-widget h2{color:#c792ff}.quick-widget h2{color:#ffbd4a}
+.date-widget{left:2vw;top:3vh;width:17vw;min-width:210px;padding-bottom:14px;text-align:center}
+.date-widget .dragbar{height:32px}
+#weekday{font-size:16px;letter-spacing:2px;font-weight:700;margin-top:8px}
+#daynum{display:block;font-size:72px;line-height:.9;color:#ff9424}
+#month{font-size:15px;font-weight:700;margin-top:4px}
+#clock{color:#ffb04b;font-size:16px;font-weight:700;margin-top:8px}
+.task-widget{padding-bottom:11px}
+.daily-widget{left:21vw;top:10vh;width:25vw;height:42vh}
+.today-widget{left:47.5vw;top:10vh;width:25vw;height:42vh}
+.weekly-widget{right:2vw;top:10vh;width:22vw;height:38vh}
+.progress-widget{left:2vw;top:39vh;width:17vw;min-width:210px;padding-bottom:13px}
+.notes-widget{right:2vw;top:51vh;width:22vw;height:27vh;padding-bottom:10px}
+.week-widget{left:21vw;bottom:4vh;width:51.5vw;height:25vh;padding-bottom:10px}
+.quick-widget{left:2vw;bottom:4vh;width:17vw;min-width:210px;padding-bottom:9px}
+.hint{font-size:10px;color:#aeb7c1;margin:7px 12px}
+.task-list{height:calc(100% - 117px);overflow:auto;padding:0 12px}
+.task{display:flex;align-items:center;gap:7px;min-height:35px;border-bottom:1px solid rgba(255,255,255,.1)}
+.task input[type=checkbox]{width:17px;height:17px;accent-color:#4bdc76;cursor:pointer;flex:none}
+.task input[type=text]{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font-size:13px}
+.task.done input[type=text]{text-decoration:line-through;color:#87909b}
+.delete{background:none;border:0;color:#9aa3ad;font-size:17px;cursor:pointer}
+.delete:hover{color:#ff7070}
+.add-row{display:flex;gap:6px;margin:7px 12px 0}
+.add-row input{flex:1;min-width:0;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.17);border-radius:7px;padding:7px 8px;color:#fff;outline:0;font-size:11px}
+.add-row button{width:32px;border:1px solid rgba(255,255,255,.2);border-radius:7px;background:rgba(255,255,255,.08);color:#fff;font-size:17px;cursor:pointer}
+.progress{display:flex;justify-content:space-between;padding:6px 12px 0;font-size:10px;color:#cbd2da}.progress b{color:#fff}
+.bar{height:5px;margin:3px 12px 0;background:rgba(255,255,255,.14);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:#4bdc76;transition:width .12s}.bar.blue i{background:#53c8ff}.bar.orange i{background:#ff9a22}
+.ring{width:105px;height:105px;margin:12px auto 9px;border-radius:50%;background:conic-gradient(#4bdc76 var(--deg,0deg),rgba(255,255,255,.13) 0);display:grid;place-items:center;position:relative}
+.ring:after{content:"";position:absolute;inset:9px;background:#111820;border-radius:50%}.ring span,.ring small{position:relative;z-index:1}.ring span{font-size:25px;font-weight:800}.ring small{font-size:8px;margin-top:-29px}
+.stat{display:flex;justify-content:space-between;padding:4px 13px;font-size:11px}.stat b{color:#69e680}.stat:nth-of-type(3) b{color:#53c8ff}.stat:nth-of-type(4) b{color:#ff9a22}
+.notes-widget textarea{margin:9px 12px 4px;width:calc(100% - 24px);height:calc(100% - 78px);resize:none;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:8px;color:#fff;outline:0;font-size:12px}.notes-widget small{margin-left:13px;color:#68e680;font-size:9px}
+#weekDays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px 12px}.week-day{border:1px solid rgba(255,255,255,.12);border-radius:8px;text-align:center;padding:7px 2px;font-size:10px;background:rgba(0,0,0,.13)}.week-day strong{display:block;font-size:16px;margin:3px 0}.week-day small{color:#68e680}.week-day.current{border-color:#53c8ff}
+.quick-widget button{display:block;width:100%;padding:7px 13px;text-align:left;border:0;background:transparent;color:#fff;font-size:11px;cursor:pointer}.quick-widget button:hover{color:#6fe68e}
+#toast{position:fixed;left:50%;top:5%;transform:translateX(-50%);background:rgba(0,0,0,.82);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 13px;opacity:0;transition:opacity .2s;z-index:99;pointer-events:none}
+@media(max-width:1200px){.date-widget,.progress-widget,.quick-widget{min-width:185px}.daily-widget{left:20vw;width:27vw}.today-widget{left:48.5vw;width:27vw}.weekly-widget,.notes-widget{width:20vw}.week-widget{left:20vw;width:55vw}}
+
+.resize-handle{position:absolute;right:4px;bottom:4px;width:18px;height:18px;cursor:nwse-resize;z-index:30;opacity:.75;background:linear-gradient(135deg,transparent 45%,rgba(255,255,255,.8) 46% 52%,transparent 53% 100%),linear-gradient(135deg,transparent 62%,rgba(255,255,255,.55) 63% 69%,transparent 70% 100%)} .resize-handle:hover{opacity:1}
+
+
+/* Lively interaction/cursor fix */
+html, body, #desktop, .widget {
+  cursor: default !important;
+}
+input, textarea {
+  cursor: text !important;
+}
+input[type="checkbox"] {
+  cursor: pointer !important;
+}
+button, .delete {
+  cursor: pointer !important;
+}
+.dragbar {
+  cursor: grab !important;
+}
+.dragbar:active {
+  cursor: grabbing !important;
+}
+.resize-handle {
+  cursor: nwse-resize !important;
+}
+
+/* PERFORMANCE MODE: avoid expensive visual effects in Lively */
+* { text-shadow: none !important; }
+.widget { will-change: auto !important; }
+
+.sync-status{margin-top:6px;padding:6px 8px;border-radius:7px;font-size:11px;text-align:center;color:#d9c8c1;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08)}
+.sync-status.ok{color:#9fe7ad}.sync-status.busy{color:#ffd19d}.sync-status.err{color:#ff9b8f}
