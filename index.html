@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Konoha Interactive Checklist</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="desktop">
+
+  <section class="widget date-widget" data-widget="date">
+    <div class="dragbar"><b>🍥 KONOHA</b><span class="drag-handle">⠿</span></div>
+    <div id="weekday"></div><strong id="daynum"></strong><div id="month"></div><div id="clock"></div>
+  </section>
+
+  <section class="widget task-widget daily-widget" data-widget="daily">
+    <header class="dragbar"><h2>☀ EVERYDAY TASKS</h2><span>⠿</span></header>
+    <p class="hint">Reset every day</p>
+    <div class="task-list" id="dailyList"></div>
+    <div class="add-row"><input id="dailyInput" placeholder="Add daily task…" onkeydown="enterAdd(event,'daily')"><button onclick="addTask('daily')">＋</button></div>
+    <div class="progress"><span id="dailyProgress">0 / 0</span><b id="dailyPct">0%</b></div><div class="bar"><i id="dailyBar"></i></div>
+  </section>
+
+  <section class="widget task-widget today-widget" data-widget="today">
+    <header class="dragbar"><h2>📝 TODAY'S TASKS</h2><span>⠿</span></header>
+    <p class="hint">Add your new tasks for today</p>
+    <div class="task-list" id="todayList"></div>
+    <div class="add-row"><input id="todayInput" placeholder="Add today's task…" onkeydown="enterAdd(event,'today')"><button onclick="addTask('today')">＋</button></div>
+    <div class="progress"><span id="todayProgress">0 / 0</span><b id="todayPct">0%</b></div><div class="bar blue"><i id="todayBar"></i></div>
+  </section>
+
+  <section class="widget task-widget weekly-widget" data-widget="weekly">
+    <header class="dragbar"><h2>📅 WEEKLY TASKS</h2><span>⠿</span></header>
+    <p class="hint">Reset every Monday</p>
+    <div class="task-list" id="weeklyList"></div>
+    <div class="add-row"><input id="weeklyInput" placeholder="Add weekly task…" onkeydown="enterAdd(event,'weekly')"><button onclick="addTask('weekly')">＋</button></div>
+    <div class="progress"><span id="weeklyProgress">0 / 0</span><b id="weeklyPct">0%</b></div><div class="bar orange"><i id="weeklyBar"></i></div>
+  </section>
+
+  <section class="widget progress-widget" data-widget="progress">
+    <header class="dragbar"><h2>◉ OVERALL PROGRESS</h2><span>⠿</span></header>
+    <div class="ring"><span id="overallPct">0%</span><small>OVERALL</small></div>
+    <div class="stat"><span>Daily</span><b id="dailyStat">0 / 0</b></div>
+    <div class="stat"><span>Today's</span><b id="todayStat">0 / 0</b></div>
+    <div class="stat"><span>Weekly</span><b id="weeklyStat">0 / 0</b></div>
+  </section>
+
+  <section class="widget notes-widget" data-widget="notes">
+    <header class="dragbar"><h2>✦ NOTES</h2><span>⠿</span></header>
+    <textarea id="notes" placeholder="Write quick notes here…"></textarea>
+    <small>● Saved automatically</small>
+  </section>
+
+  <section class="widget week-widget" data-widget="week">
+    <header class="dragbar"><h2>▦ THIS WEEK</h2><span>⠿</span></header>
+    <div id="weekDays"></div>
+  </section>
+
+  <section class="widget quick-widget" data-widget="quick">
+    <header class="dragbar"><h2>⚡ QUICK ACTIONS</h2><span>⠿</span></header>
+    <button onclick="focusAdd('daily')">＋ Add Daily Task</button>
+    <button onclick="focusAdd('today')">＋ Add Today's Task</button>
+    <button onclick="focusAdd('weekly')">＋ Add Weekly Task</button>
+    <button onclick="resetToday()">↻ Reset Today</button>
+    <button onclick="resetWeek()">↻ Reset Week</button><button onclick="pullLiveState()">☁ Sync Now</button><button onclick="saveReportToSheets()">📤 Save Today to Sheets</button><div id="syncStatus" class="sync-status">☁ Sheets: Not connected</div>
+  </section>
+
+  <div id="toast"></div><script>document.querySelectorAll(".widget").forEach(w=>{const h=document.createElement("div");h.className="resize-handle";h.title="Drag to resize";w.appendChild(h)});</script>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
