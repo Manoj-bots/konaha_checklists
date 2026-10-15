@@ -3,7 +3,7 @@ const DEFAULT_DAILY=["Check emails / messages","Send morning update","Check Jira
 const DEFAULT_WEEKLY=["WSR – Email","WSR – Message","Fill Timesheet"];
 
 // Paste the SAME deployed Apps Script /exec URL here and in laptop/script.js.
-const SHEETS_WEB_APP_URL="https://script.google.com/macros/s/AKfycbyy5-mnTAsRqo44btUil2Bci0CtU0sFhKHKXQ5dNAHN8trV96LJiTdEPJnhA567CxJJ/exec";
+const SHEETS_WEB_APP_URL="https://script.google.com/macros/s/AKfycbwEBliGF_pOgAZRCuywBydfMWFTXYRQO7VbNKItixi4AWwKsEY04Ac9QTwZtLwCkKIx/exec";
 const SHEETS_ENABLED=SHEETS_WEB_APP_URL.startsWith("https://script.google.com/");
 const DEVICE_NAME="Mobile";
 
